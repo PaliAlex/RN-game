@@ -1,9 +1,13 @@
 export const generateRandomBetween = (min: number, max: number, exclude: number): number => {
-    const rndNum = Math.floor(Math.random() * (max - min)) + min;
-
-    if (rndNum === exclude) {
-        return generateRandomBetween(min, max, exclude);
-    } else {
-        return rndNum;
+    if (max - min <= 1) {
+        return min === exclude ? max - 1 : min;
     }
-}
+
+    let rndNum = Math.floor(Math.random() * (max - min)) + min;
+
+    while (rndNum === exclude) {
+        rndNum = Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    return rndNum;
+};

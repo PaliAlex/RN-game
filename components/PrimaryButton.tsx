@@ -1,8 +1,9 @@
+import React from "react";
 import {View, Text, Pressable, StyleSheet} from "react-native";
 import {Colors} from "../constants/palette";
 
 interface PrimaryButtonProps {
-    label: string,
+    label: React.ReactNode,
     onPress(): void,
 }
 export const PrimaryButton = ({label, onPress}:PrimaryButtonProps) => {
